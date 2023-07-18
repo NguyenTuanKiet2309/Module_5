@@ -26,11 +26,15 @@ let courses = [
   },
 ];
 
-const rateCourses = courses.filter(courses => courses.rating >= 4);
+const rateCourses = courses.filter((courses) => courses.rating >= 4);
 console.log(rateCourses);
 
-const rateCourses1 = courses.filter(courses => courses.rating < 4);
-rateCourses1.forEach(courses => console.log(courses.id + '-' + courses.title + '-' + courses.rating));
+const rateCourses1 = courses
+  .filter((courses) => courses.rating < 4)
+  .map((courses) => `${courses.id} - ${courses.title} - ${courses.rating}`);
+// rateCourses1.forEach((courses) =>
+console.log(rateCourses1);
+// );
 
 let addedCourses = [
   {
@@ -47,9 +51,9 @@ let addedCourses = [
     id: 8,
     title: "Docker Tutorial",
     rating: 3.8,
-  }
+  },
 ];
 
-const mergeCourses = [...courses, ...addedCourses];
+const merge = (arr1, arr2) => [...courses, ...addedCourses];
+const mergeCourses = merge(courses, addedCourses);
 console.log(mergeCourses);
-
