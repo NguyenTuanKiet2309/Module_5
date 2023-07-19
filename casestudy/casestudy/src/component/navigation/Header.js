@@ -8,7 +8,7 @@ class Header extends Component {
               <div class="container">
                 <div class="d-flex align-items-center">
                   <div id="logo">
-                    <a href="index.html"><img style={{width: "50%", height: "50%"}} src="https://www.furama.com/images/LOGOFurama_4C_Normal.png" alt="" title="" /></a>
+                    <a href="index.html"><img style={{width: "50%", height: "50%",position:"relative",right: "160px"}} src="https://www.furama.com/images/LOGOFurama_4C_Normal.png" alt="" title="" /></a>
                   </div>
                   <div class="ml-auto d-none d-md-block d-md-flex">
                     <div class="media header-top-info">
@@ -62,8 +62,6 @@ class Header extends Component {
                   </ul>
                 </div>
               </nav>
-              
-
             </div>
             </header>
         );

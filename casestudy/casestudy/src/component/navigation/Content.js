@@ -5,9 +5,6 @@ class Content extends Component {
     return (
 
         <main class="site-main">
-    
-
-    
         <section class="home-banner-area" id="home">
           <div class="container h-100">
             <div class="home-banner">
@@ -19,9 +16,6 @@ class Content extends Component {
             </div>
           </div>
         </section>
-        
-      
-    
  
         <form class="form-search form-search-position">
           <div class="container">
