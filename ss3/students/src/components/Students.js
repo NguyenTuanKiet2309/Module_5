@@ -1,8 +1,10 @@
 import React from "react";
 
 class Students extends React.Component {
+  constructor(props) {
+    super();
+  }
   render() {
-    const { students } = this.props;
     return (
       <table className="table table-striped">
         <thead style={{ color: "black" }}>
@@ -14,7 +16,7 @@ class Students extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {students.map((student) => (
+          {this.props.students.map((student) => (
             <tr key={student.id}>
               <td>{student.id}</td>
               <td>{student.name}</td>
