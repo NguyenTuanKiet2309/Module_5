@@ -53,10 +53,10 @@ class Todo extends React.Component {
   handleAddItem = () => {
     if (this.state.item !== "") {
       this.setState(() =>{
-        return {
+        return ({
           list: [...this.state.list, this.state.item],
           item: ''
-        }
+        })
       });
     }
   };
