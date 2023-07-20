@@ -33,8 +33,8 @@ class Todo extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.list.map((item) => (
-                <tr>
+              {this.state.list.map((item, index) => (
+                <tr key={index}>
                   <td>{item}</td>
                 </tr>
               ))}
@@ -52,13 +52,17 @@ class Todo extends React.Component {
 
   handleAddItem = () => {
     if (this.state.item !== "") {
-      const newItem = this.state.list;
-      newItem.push(this.state.item);
+      const newItem = [...this.state.list, this.state.item];
       const object = {
         list: newItem,
         item: "",
       };
-      this.setState(object);
+      this.setState(object, () =>{
+        return {
+          list: newItem,
+          item: ''
+        }
+      });
     }
   };
 }
