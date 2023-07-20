@@ -52,14 +52,9 @@ class Todo extends React.Component {
 
   handleAddItem = () => {
     if (this.state.item !== "") {
-      const newItem = [...this.state.list, this.state.item];
-      const object = {
-        list: newItem,
-        item: "",
-      };
-      this.setState(object, () =>{
+      this.setState(() =>{
         return {
-          list: newItem,
+          list: [...this.state.list, this.state.item],
           item: ''
         }
       });
