@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Edit extends Component {
+class EditService extends Component {
   render() {
     return (
       <div>
@@ -88,4 +88,4 @@ class Edit extends Component {
   }
 }
 
-export default Edit;
+export default EditService;

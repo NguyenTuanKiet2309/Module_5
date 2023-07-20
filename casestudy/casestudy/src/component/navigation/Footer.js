@@ -3,10 +3,9 @@ import React, { Component } from "react";
 class Footer extends Component {
   render() {
     return (
-      <footer class="footer-area section-gap">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
               <h4>Top Products</h4>
               <ul>
                 <li>
@@ -23,7 +22,7 @@ class Footer extends Component {
                 </li>
               </ul>
             </div>
-            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+            <div className="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
               <h4>Quick Links</h4>
               <ul>
                 <li>
@@ -40,7 +39,7 @@ class Footer extends Component {
                 </li>
               </ul>
             </div>
-            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+            <div className="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
               <h4>Features</h4>
               <ul>
                 <li>
@@ -57,7 +56,7 @@ class Footer extends Component {
                 </li>
               </ul>
             </div>
-            <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+            <div className="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
               <h4>Resources</h4>
               <ul>
                 <li>
@@ -74,70 +73,49 @@ class Footer extends Component {
                 </li>
               </ul>
             </div>
-            <div class="col-xl-4 col-md-8 mb-4 mb-xl-0 single-footer-widget">
+            <div className="col-xl-4 col-md-8 mb-4 mb-xl-0 single-footer-widget">
               <h4>Newsletter</h4>
               <p>You can trust us. we only send promo offers,</p>
-              <div class="form-wrap" id="mc_embed_signup">
-                <form
-                  target="_blank"
-                  action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                  method="get"
-                  class="form-inline"
-                >
-                  <input
-                    class="form-control"
-                    name="EMAIL"
-                    placeholder="Your Email Address"
-                    onfocus="this.placeholder = ''"
-                    onblur="this.placeholder = 'Your Email Address '"
-                    required=""
-                    type="email"
-                  />
-                  <button class="click-btn btn btn-default text-uppercase">
+              <div className="form-wrap" id="mc_embed_signup">
+                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01" method="get" className="form-inline">
+                  <input className="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" required type="email" />
+                  <button className="click-btn btn btn-default text-uppercase">
                     subscribe
                   </button>
                   <div style={{position: "absolute", left:"-5000px"}}>
-                    <input
-                      name="b_36c4fd991d266f23781ded980_aefe40901a"
-                      tabindex="-1"
-                      value=""
-                      type="text"
-                    />
+                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabIndex={-1} defaultValue type="text" />
                   </div>
-
-                  <div class="info"></div>
+                  <div className="info" />
                 </form>
               </div>
             </div>
           </div>
-          <div class="footer-bottom row align-items-center text-center text-lg-left">
-            <p class="footer-text m-0 col-lg-8 col-md-12">
-              {" "}
-          
-              <script>document.write(new Date().getFullYear());</script> {" "}
-              {" "}
-              <a href="https://colorlib.com">
-          
+          <div className="footer-bottom row align-items-center text-center text-lg-left">
+            <p className="footer-text m-0 col-lg-8 col-md-12">
+              {'{'}" "{'}'}
+              {'{'}" "{'}'}
+              {'{'}" "{'}'}
+              <a href="/#">
               </a>
-        
             </p>
-            <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+            <div className="col-lg-4 col-md-12 text-center text-lg-right footer-social">
               <a href="/#">
-                <i class="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f" />
               </a>
               <a href="/#">
-                <i class="fab fa-twitter"></i>
+                <i className="fab fa-twitter" />
               </a>
               <a href="/#">
-                <i class="fab fa-dribbble"></i>
+                <i className="fab fa-dribbble" />
               </a>
               <a href="/#">
-                <i class="fab fa-behance"></i>
+                <i className="fab fa-behance" />
               </a>
             </div>
           </div>
         </div>
-      </footer>
+    
+
     );
   }
 }
