@@ -1,91 +1,69 @@
-import React, { Component } from "react";
 
-class CreateService extends Component {
-  render() {
+
+export default function CreateService() {
+
     return (
-      <div>
-        <h1>Create New Service </h1>
-        <div class="booking-form-w3layouts">
-          <form action="#" method="post">
-            <h2 class="sub-heading-agileits" style="color: #0091cd">
-              Furama's Service
-            </h2>
-            <div class="main-flex-w3ls-sectns">
-              <div class="field-agileinfo-spc form-w3-agile-text">
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Email"
-                  required=""
-                />
-              </div>
+      <>
+      <h1>Create New Service </h1>
+      <div className="booking-form-w3layouts">
+        <form action="#" method="post">
+          <h2 className="sub-heading-agileits" style={{color: '#0091cd'}}>
+            Furama's Service
+          </h2>
+          <div className="main-flex-w3ls-sectns">
+            <div className="field-agileinfo-spc form-w3-agile-text">
+              <input type="email" name="Email" placeholder="Email" required />
             </div>
-            <div class="main-flex-w3ls-sectns">
-              <div class="field-agileinfo-spc form-w3-agile-text">
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Usage Area(m2)"
-                  required=""
-                />
-              </div>
+          </div>
+          <div className="main-flex-w3ls-sectns">
+            <div className="field-agileinfo-spc form-w3-agile-text">
+              <input type="email" name="Email" placeholder="Usage Area(m2)" required />
             </div>
-            <div class="main-flex-w3ls-sectns">
-              <div class="field-agileinfo-spc form-w3-agile-text">
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Rental Cost($)"
-                  required=""
-                />
-              </div>
+          </div>
+          <div className="main-flex-w3ls-sectns">
+            <div className="field-agileinfo-spc form-w3-agile-text">
+              <input type="email" name="Email" placeholder="Rental Cost($)" required />
             </div>
-
-            <div class="main-flex-w3ls-sectns">
-              <div class="field-agileinfo-spc form-w3-agile-text">
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Capacity(People)"
-                  required=""
-                />
-              </div>
+          </div>
+          <div className="main-flex-w3ls-sectns">
+            <div className="field-agileinfo-spc form-w3-agile-text">
+              <input type="email" name="Email" placeholder="Capacity(People)" required />
             </div>
-            <div class="radio-section">
-              <h6>Type Of Rent</h6>
-              <ul class="radio-buttons-w3-agileits">
-                <li>
-                  <input type="radio" id="a-option" name="selector1" />
-                  <label for="a-option">Day</label>
-                  <div class="check"></div>
-                </li>
-                <li>
-                  <input type="radio" id="b-option" name="selector1" />
-                  <label for="b-option">Month</label>
-                  <div class="check">
-                    <div class="inside"></div>
-                  </div>
-                </li>
-                <li>
-                  <input type="radio" id="c-option" name="selector1" />
-                  <label for="c-option">Year</label>
-                  <div class="check">
-                    <div class="inside"></div>
-                  </div>
-                </li>
-              </ul>
-              <div class="clear"></div>
-            </div>
-
-            <div class="clear"></div>
-            <input type="submit" value="Submit" />
-            <input type="reset" value="Clear Form" />
-            <div class="clear"></div>
-          </form>
-        </div>
+          </div>
+          <div className="radio-section">
+            <h6>Type Of Rent</h6>
+            <ul className="radio-buttons-w3-agileits">
+              <li>
+                <input type="radio" id="a-option" name="selector1" />
+                <label htmlFor="a-option">Day</label>
+                <div className="check" />
+              </li>
+              <li>
+                <input type="radio" id="b-option" name="selector1" />
+                <label htmlFor="b-option">Month</label>
+                <div className="check">
+                  <div className="inside" />
+                </div>
+              </li>
+              <li>
+                <input type="radio" id="c-option" name="selector1" />
+                <label htmlFor="c-option">Year</label>
+                <div className="check">
+                  <div className="inside" />
+                </div>
+              </li>
+            </ul>
+            <div className="clear" />
+          </div>
+          <div className="clear" />
+          <input type="submit" defaultValue="Submit" />
+          <input type="reset" defaultValue="Clear Form" />
+          <div className="clear" />
+        </form>
       </div>
+    </>
     );
   }
-}
 
-export default CreateService;
+
+

@@ -1,8 +1,9 @@
-import React, { Component } from "react";
 
-class Footer extends Component {
-  render() {
+
+export default function Footer() {
     return (
+      <div>
+      <footer class="footer-area section-gap">
         <div className="container">
           <div className="row">
             <div className="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
@@ -92,9 +93,6 @@ class Footer extends Component {
           </div>
           <div className="footer-bottom row align-items-center text-center text-lg-left">
             <p className="footer-text m-0 col-lg-8 col-md-12">
-              {'{'}" "{'}'}
-              {'{'}" "{'}'}
-              {'{'}" "{'}'}
               <a href="/#">
               </a>
             </p>
@@ -115,9 +113,9 @@ class Footer extends Component {
           </div>
         </div>
     
-
+        </footer>
+        </div>
     );
-  }
+  
 }
 
-export default Footer;

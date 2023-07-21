@@ -1,26 +1,25 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 
 function App() {
-  const [counter1, setCounter1] = useState(0);
-  const [counter2, setCounter2] = useState(0);
+  function useIncrement(addAmount) {
+    const [count, setCount] = React.useState(0);
 
+    let increase = () => {
+      setCount((previousState) => addAmount + previousState);
+    };
+
+    return [count, increase];
+  }
+
+  const [count1, setCount1] = useIncrement(1);
+  const [count2, setCount2] = useIncrement(2);
   return (
     <div>
-      <p>Count:{counter1}</p>
-      <button
-        onClick={() => setCounter1((previousCounter) => previousCounter + 1)}
-      >
-        Add1
-      </button>
-      <p>Count2:{counter2}</p>
-      <button
-        onClick={() => {
-          setCounter2((previousCounter) => previousCounter + 1);
-        }}
-      >
-        Add2
-      </button>
+      <h1>Count1 : {count1}</h1>
+      <button onClick={setCount1}>Add 1</button>
+      <h1>Count2 : {count2}</h1>
+      <button onClick={setCount2}> Add 2</button>
     </div>
   );
 }

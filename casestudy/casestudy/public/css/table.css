@@ -138,8 +138,8 @@ table.table .avatar {
 	margin-top: 10px;
 	font-size: 13px;
 }    
-/* Custom checkbox */
-.custom-checkbox {
+ /* Custom checkbox */
+ .custom-checkbox {
 	position: relative;
 }
 .custom-checkbox input[type="checkbox"] {    
@@ -188,9 +188,9 @@ table.table .avatar {
 	cursor: auto;
 	box-shadow: none;
 	background: #ddd;
-}
+} */ 
 /* Modal styles */
-.modal .modal-dialog {
+ .modal .modal-dialog {
 	max-width: 400px;
 }
 .modal .modal-header, .modal .modal-body, .modal .modal-footer {
@@ -220,5 +220,5 @@ table.table .avatar {
 	min-width: 100px;
 }	
 .modal form label {
-	font-weight: normal;
-}	
+	font-weight: normal; 
+}	 
