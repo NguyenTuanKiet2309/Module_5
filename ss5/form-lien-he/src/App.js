@@ -10,19 +10,19 @@ function App() {
       <Formik
         initialValues={{ Name: "", Email: "", Phone: "", Message: "" }}
         validationSchema={yup.object({
-          Name: yup.string().required("Required"),
+          Name: yup.string().required("Name must be Required"),
           Email: yup
             .string()
-            .required("Required")
+            .required("Email must be Required")
             .matches(
               /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
               "Phải theo định dạng"
             ),
-          Phone: yup.string().required("Required").length(10,"Phải 10 số"),
-          Message: yup.string().required("Required"),
+          Phone: yup.string().required("Phone must be Required").length(10,"Greate 10 number"),
+          Message: yup.string().required("Message must be Required"),
         })}
         onSubmit={() =>{
-          alert("Thành công");
+          alert("Successful");
         }}
       >
         <Form>

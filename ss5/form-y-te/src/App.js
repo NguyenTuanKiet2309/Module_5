@@ -23,26 +23,26 @@ function App() {
           Email: "",
         }}
         validationSchema={yup.object({
-          Name: yup.string().required("Required"),
+          Name: yup.string().required("Name must be Required"),
           IdCard: yup.string().required(),
           Year: yup
             .number()
             .min(1900, "Minimum 1900")
             .max(2023, "Minimax 2023")
-            .required("Required"),
-          Nationality: yup.string().required("Required"),
-          City: yup.string().required("Required"),
-          District: yup.string().required("Required"),
-          Wards: yup.string().required("Required"),
-          Address: yup.string().required("Required"),
+            .required("Year must be Required"),
+          Nationality: yup.string().required("Nationality must be Required"),
+          City: yup.string().required("City must be Required"),
+          District: yup.string().required("District must be Required"),
+          Wards: yup.string().required("Wards must be Required"),
+          Address: yup.string().required("Address must be Required"),
           Email: yup
             .string()
-            .required("Required")
+            .required("Email must be Required")
             .matches(
               /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
               "Invalid email address"
             ),
-          Phone: yup.string().required("Required").length(10, "Must 10 num"),
+          Phone: yup.string().required("Phne must be Required").length(10, "Must 10 num"),
         })}
         onSubmit={() => {
           alert("Successful");
