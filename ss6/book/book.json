@@ -3,22 +3,7 @@
     {
       "title": "Java",
       "id": 4,
-      "quantity": "10"
-    },
-    {
-      "title": "C++",
-      "id": 5,
-      "quantity": "10"
-    },
-    {
-      "title": "zxczxc",
-      "quantity": "123",
-      "id": 6
-    },
-    {
-      "title": "",
-      "quantity": "",
-      "id": 7
+      "quantity": "12"
     }
   ]
 }

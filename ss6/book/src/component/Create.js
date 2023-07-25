@@ -9,14 +9,17 @@ export default function Create() {
     const data = await getListBook();
     const title = document.getElementById("title").value;
     const quantity = document.getElementById("quantity").value;
+
     const obj = {
       title: title,
       quantity: quantity,
     };
+
     await createBook(obj);
     alert("Add Successful");
     navigate("/");
   };
+  
   return (
     <>
       <h1>Add New Book</h1>

@@ -8,17 +8,19 @@ function EditBook() {
   const [book, setBook] = useState(null);
   const params = useParams();
 
-  useEffect(() => {
+  function findBookById() {
     const getList = async () => {
       const data = await getListBook();
       const bk = data.filter((s) => s.id === +params.id)[0];
       setBook(bk);
     };
     getList();
-  }, [params.id]);
-  if (!book) {
-    return null;
   }
+
+  useEffect(() => {
+    findBookById();
+  }, [params.id]);
+
   return (
     <>
       <h1>Edit Books</h1>

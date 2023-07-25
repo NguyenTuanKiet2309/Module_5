@@ -4,13 +4,28 @@ import { Link } from "react-router-dom";
 
 export default function Library() {
   const [book, setBook] = useState([]);
+
   useEffect(() => {
+    getList();
+  });
+
+  function getList() {
     const getBook = async () => {
       const data = await getListBook();
       setBook(data);
     };
     getBook();
-  });
+  };
+
+  const handleDelete = (bookId) => {
+    if (window.confirm("Are you sure delete this book ?")) {
+      deleteBook(bookId).then(() => {
+        getListBook().then((data) => {
+          setBook(data);
+        });
+      });
+    }
+  };
 
   return (
     <>
@@ -36,18 +51,7 @@ export default function Library() {
                 <button
                   className="btn btn-outline-danger"
                   type="button"
-                  onClick={() => {
-                    deleteBook(book.id)
-                      .then(() => {
-                        getListBook().then((data) => {
-                          setBook(data);
-                          alert("Delete Successful");
-                        });
-                      })
-                      .catch(() => {
-                        console.log("loi");
-                      });
-                  }}
+                  onClick={() => handleDelete(book.id)}
                 >
                   Delete
                 </button>

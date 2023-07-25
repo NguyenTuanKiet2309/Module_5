@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { getTodoList, createTodo } from "../service/TodoService";
 function ListTodo() {
   const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
+  function getList() {
     const getTodo = async () => {
       const data = await getTodoList();
       setTodos(data);
     };
     getTodo();
+  }
+
+  useEffect(() => {
+    getList();
   }, []);
 
   const handleSubmit = async () => {
