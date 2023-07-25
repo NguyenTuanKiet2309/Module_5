@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "Kiệt",
+      "email": "kiet@gmail.com",
+      "website": "abc.com"
+    },
+    {
+      "id": 2,
+      "name": "Cao",
+      "email": "cao@gmail.com",
+      "website": "abc.com"
+    },
+    {
+      "id": 3,
+      "name": "Nhàn",
+      "email": "nhan@gmail.com",
+      "website": "abc.com"
+    },
+    {
+      "id": 4,
+      "name": "Hưng",
+      "email": "hung@gmail.com",
+      "website": "abc.com"
+    }
+  ]
+}
