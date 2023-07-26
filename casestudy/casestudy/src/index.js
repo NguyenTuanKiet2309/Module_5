@@ -15,8 +15,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Header/>
-
-      
       <Routes>
         <Route path="/" element={<Content />} />
         <Route path="/contract" element={<ListContract />} />
