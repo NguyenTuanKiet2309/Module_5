@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { createBook, editBook, getListBook } from "../service/BookService";
+import { editBook, getListBook } from "../service/BookService";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 function EditBook() {
@@ -11,8 +11,8 @@ function EditBook() {
   function findBookById() {
     const getList = async () => {
       const data = await getListBook();
-      const bk = data.filter((s) => s.id === +params.id)[0];
-      setBook(bk);
+      const bookId = data.filter((s) => s.id === +params.id)[0];
+      setBook(bookId);
     };
     getList();
   }

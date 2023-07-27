@@ -1,13 +1,39 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import {
   AddCustomerModal,
   EditCustomerModal,
   DeleteCustomerModal,
 } from "./ModalCustomer";
 import { getListCustomer } from "../furama_service/FuramaService";
+
 export default function ListCustomer() {
   const [customers, setCustomers] = useState([]);
+  const [deletedId, setDeletedId] = useState(null);
+  const [isOpenModalDeleteCustomer, setIsOpenDeleteCustomer] = useState(false);
+  const [isOpenModalEditCustomer, setIsOpenEditCustomer] = useState(false);
+  const [isOpenModalCreateCustomer, setIsOpenCreateCustomer] = useState(false);
+
+  const openModalCreateCustomer = () => {
+    setIsOpenCreateCustomer(true);
+  };
+
+  const closeModalCreateCustomer = () => setIsOpenCreateCustomer(false);
+
+  const openModalEditCustomer = (id) => {
+    setIsOpenEditCustomer(true);
+
+    console.log("edit " + id);
+  };
+
+  const closeModalEditCustomer = () => setIsOpenEditCustomer(false);
+
+  const openModalDeleteCustomer = (id) => {
+    setIsOpenDeleteCustomer(true);
+    setDeletedId(id);
+    console.log("delete " + id);
+  };
+
+  const closeModalDeleteCustomer = () => setIsOpenDeleteCustomer(false);
 
   function getList() {
     const getCustomer = async () => {
@@ -20,6 +46,7 @@ export default function ListCustomer() {
   useEffect(() => {
     getList();
   });
+
   return (
     <>
       <div className="container-xl container-fluid">
@@ -33,7 +60,15 @@ export default function ListCustomer() {
                   </h2>
                 </div>
                 <div className="col-sm-6">
-                  <AddCustomerModal />
+                  <a
+                    onClick={() => {
+                      openModalCreateCustomer();
+                    }}
+                    className="btn btn-success"
+                  >
+                    <i className="material-icons"></i>{" "}
+                    <span>Add New Customer</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -54,26 +89,66 @@ export default function ListCustomer() {
               </thead>
               <tbody>
                 {customers.map((customer) => {
-                  return(
-                  <tr key={customer.id}>
-                    <td>{customer.id}</td>
-                    <td>{customer.name}</td>
-                    <td>{customer.date_of_birth}</td>
-                    <td>{customer.gender}</td>
-                    <td>{customer.id_customerard}</td>
-                    <td>{customer.phone_number}</td>
-                    <td>{customer.email}</td>
-                    <td>{customer.customer_type}</td>
-                    <td>{customer.address}</td>
-                    <td>
-                      <EditCustomerModal />
-                      <DeleteCustomerModal />
-                    </td>
-                  </tr>
+                  return (
+                    <tr key={customer.id}>
+                      <td>{customer.id}</td>
+                      <td>{customer.name}</td>
+                      <td>{customer.date_of_birth}</td>
+                      <td>{customer.gender}</td>
+                      <td>{customer.id_customerard}</td>
+                      <td>{customer.phone_number}</td>
+                      <td>{customer.email}</td>
+                      <td>{customer.customer_type}</td>
+                      <td>{customer.address}</td>
+                      <td>
+                        <a
+                          onClick={() => {
+                            openModalEditCustomer();
+                          }}
+                          className="edit"
+                        >
+                          <i
+                            className="material-icons"
+                            data-toggle="tooltip"
+                            title="Edit"
+                          >
+                            
+                          </i>
+                        </a>
+
+                        <a
+                          onClick={() => {
+                            openModalDeleteCustomer(customer.id);
+                          }}
+                          className="delete"
+                        >
+                          <i
+                            className="material-icons"
+                            data-toggle="tooltip"
+                            title="Delete"
+                          >
+                            
+                          </i>
+                        </a>
+                      </td>
+                    </tr>
                   );
                 })}
               </tbody>
             </table>
+            <AddCustomerModal
+              isOpen={isOpenModalCreateCustomer}
+              closeModal={closeModalCreateCustomer}
+            />
+            <DeleteCustomerModal
+              isOpen={isOpenModalDeleteCustomer}
+              closeModal={closeModalDeleteCustomer}
+              deleteId={deletedId}
+            />
+            <EditCustomerModal
+              isOpen={isOpenModalEditCustomer}
+              closeModal={closeModalEditCustomer}
+            />
             <div className="clearfix">
               <div className="hint-text">
                 Showing <b>5</b> out of <b>25</b> entries

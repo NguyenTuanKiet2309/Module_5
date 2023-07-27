@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import * as yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import axios from "axios";
-import { CreateCustomer, DeleteCustomer } from "../furama_service/FuramaService";
-import { useNavigate } from "react-router";
 
-function AddCustomerModal(props) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+function AddServiceModal(props) {
+  const [show, setShow] = useState(false);
   const [form, setForm] = useState({
     fullName: "",
     idCard: "",
@@ -23,7 +20,7 @@ function AddCustomerModal(props) {
     { label: "Female", value: "Female" },
   ];
 
-  const typeCustomers = [
+  const typeServices = [
     { label: "Member", value: "Member" },
     { label: "Silver", value: "Silver" },
     { label: "Gold", value: "Gold" },
@@ -32,47 +29,21 @@ function AddCustomerModal(props) {
   ];
 
   const REGEX = yup.object().shape({
-    fullName: yup
-      .string()
-      .matches(/^[a-zA-Z\s]*$/, "Customer name cannot contain numbers.")
-      .test(
-        "uppercase",
-        "The first letter of each word must be capitalized.",
-        (value) => {
-          if (value) {
-            const words = value.split(" ");
-            return words.every(
-              (word) => word.charAt(0) === word.charAt(0).toUpperCase()
-            );
-          }
-          return true;
-        }
-      )
-      .required("Customer name must be required."),
-    idCard: yup
-      .string()
-      .matches(/^[0-9]{12}$/, "ID card must be 12 number.")
-      .required("ID card must be required."),
-    address: yup.string().required("Address must be required."),
+    fullName: yup.string().required(),
+    idCard: yup.string().required(),
+    address: yup.string().required(),
     email: yup
       .string()
-
+      .required()
       .matches(
         /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
         "Email incorrect. Ex:example@gmail.com"
       )
-      .required("Email must be required."),
-    phone: yup
-      .string()
-      .matches(
-        /(84|\+84)?(90|91)\d{7}$/,
-        "Invalid phone number. Must be in the format 090xxxxxxx or (84)+90xxxxxxx"
-      )
-      .required("Phone must be required."),
+      .required(),
+    phone: yup.string().required(),
     gender: yup.string().required(),
     dateOfBirth: yup.string().required(),
   });
-
   function handleChange(event) {
     setForm({
       ...form,
@@ -80,21 +51,12 @@ function AddCustomerModal(props) {
       typeCustomer: event.target.value,
       [event.target.name]: event.target.value,
     });
-  };
-  const handleSubmit = async (values, { resetForm }) => {
-    setIsSubmitting(true);
-    try {
-      await CreateCustomer(values); // Gọi API để thêm mới khách hàng
-      alert('Add customer successfully!');
-      resetForm();
-      props.closeModal(); // Đóng modal khi thêm mới khách hàng thành công
-    } catch (error) {
-      console.log(error);
-    }
-    setIsSubmitting(false);
-  };
-
-
+  }
+  function handleSubmit(event) {
+    event.preventDefault(); // non reload
+    alert("Create Success!");
+    console.log(form);
+  }
   function handleValidate() {
     try {
       REGEX.validateSync(form, { abortEarly: false });
@@ -106,19 +68,26 @@ function AddCustomerModal(props) {
       });
       return validationErrors;
     }
-  };
+  }
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
+      <a onClick={handleShow} className="btn btn-success">
+        <i className="material-icons"></i> <span>Add New Customer</span>
+      </a>
+
       <Modal
         aria-labelledby="example-modal-sizes-title-lg"
         size="lg"
-        show={props.isOpen}
-        onHide={props.closeModal}
+        show={show}
+        onHide={handleClose}
       >
         <Modal.Header>
           <Modal.Title id="example-modal-sizes-title-lg">
-            Add Customer
+            Create Service
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -198,6 +167,7 @@ function AddCustomerModal(props) {
                           component="div"
                           className="text-red"
                         />
+                     
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
@@ -335,7 +305,7 @@ function AddCustomerModal(props) {
           </Formik>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.closeModalCreateCustomer}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={props.addCustomer}>
@@ -347,7 +317,7 @@ function AddCustomerModal(props) {
   );
 }
 
-function EditCustomerModal(props) {
+function EditServiceModal(props) {
   const [show, setShow] = useState(false);
 
   const [form, setForm] = useState({
@@ -414,14 +384,28 @@ function EditCustomerModal(props) {
       return validationErrors;
     }
   }
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
+      <a
+        onClick={handleShow}
+        // href="#editCustomerModal"
+        className="edit"
+        // data-toggle="modal"
+        // data-target="#editCustomerModal"
+      >
+        <i className="material-icons" data-toggle="tooltip" title="Edit">
+          
+        </i>
+      </a>
+
       <Modal
         aria-labelledby="example-modal-sizes-title-lg"
         size="lg"
-        show={props.isOpen}
-        onHide={props.closeModal}
+        show={show}
+        onHide={handleClose}
       >
         <Modal.Header>
           <Modal.Title>Edit Customer</Modal.Title>
@@ -503,6 +487,7 @@ function EditCustomerModal(props) {
                           component="div"
                           className="text-red"
                         />
+                     
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
@@ -640,7 +625,7 @@ function EditCustomerModal(props) {
           </Formik>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.closeModal}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={props.editCustomer}>
@@ -652,22 +637,35 @@ function EditCustomerModal(props) {
   );
 }
 
-function DeleteCustomerModal(props) {
-  function hanldeDelete(customerId) {
-    const deleteCustomers = async () => {
-      try {
-        await DeleteCustomer(customerId);
-      } catch (error) {
-        console.log("error");
-      }
-    };
-    deleteCustomers();
-  }
+function DeleteServiceModal(props) {
+  const [show, setShow] = useState(false);
+  const [deletedId, setDeletedId] = useState(null);
+
+  const handleClose = () => setShow(false);
+
+  const showModal = (id) => {
+    setShow(true);
+    setDeletedId(id);
+  };
 
   return (
     <>
-      <Modal show={props.isOpen} onHide={props.closeModal}>
-        <Modal.Header>
+      <a
+        onClick={() => {
+          showModal();
+        }}
+        // href="#deleteCustomerModal"
+        className="delete"
+        // data-toggle="modal"
+        // data-target="#deleteCustomerModal"
+      >
+        <i className="material-icons" data-toggle="tooltip" title="Delete">
+          
+        </i>
+      </a>
+
+      <Modal show={show} onHide={handleClose} deleteId={deletedId}>
+        <Modal.Header closeButton>
           <Modal.Title>Delete Customer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -675,7 +673,7 @@ function DeleteCustomerModal(props) {
             <div>
               <form>
                 <div className="modal-body">
-                  <p>Are you sure you want to delete {props.deleteId}?</p>
+                  <p>Are you sure you want to delete these Records?</p>
                   <p className="text-warning">
                     <small>This action cannot be undone.</small>
                   </p>
@@ -685,16 +683,16 @@ function DeleteCustomerModal(props) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.closeModal}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="danger" onClick={() => hanldeDelete(props.deleteId)}>
+          <Button variant="danger" onClick={props.editCustomer}>
             Delete
-          </Button>
+          </Button> 
         </Modal.Footer>
       </Modal>
     </>
   );
 }
 
-export { AddCustomerModal, EditCustomerModal, DeleteCustomerModal };
+export { AddServiceModal, EditServiceModal, DeleteServiceModal };

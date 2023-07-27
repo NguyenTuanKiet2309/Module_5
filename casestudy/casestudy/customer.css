@@ -1,0 +1,49 @@
+#customerCss {
+    /* Thêm các CSS cho phần chứa form */
+  }
+  
+  .card {
+    /* Thêm các CSS cho thẻ card chứa form */
+  }
+  
+  .user {
+    /* Thêm các CSS cho phần user form */
+  }
+  
+  /* Căn giữa ô input */
+
+ 
+
+/* Căn chỉnh ô input date */
+input[type="date"], input[type="text"],select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  box-sizing: border-box; /* Đảm bảo chiều dài của input bao gồm cả padding và border */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+  /* Chỉnh CSS cho nút Submit */
+  input[type="submit"] {
+    background-color: #DAA55A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* Căn chỉnh ô input radio theo chiều ngang */
+input[type="radio"] {
+    display: inline-block;
+    margin-right: 10px; /* Khoảng cách giữa các ô input radio */
+  }
+  /* Tạo một lớp mới để tạo padding cho các cột */
+  .column-padding {
+    padding: 5px;
+  }
+  .text-red{
+    color: red;
+  }
+  
+ 

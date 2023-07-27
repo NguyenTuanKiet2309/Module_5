@@ -14,6 +14,7 @@ export default function ListService() {
   useEffect(() => {
     getList();
   });
+  
   return (
     <>
       <div className="container-xl container">
@@ -26,9 +27,7 @@ export default function ListService() {
                     Manage <b>Service</b>
                   </h2>
                 </div>
-                <div className="col-sm-6">
-                  <AddCustomerModal/>
-                </div>
+               
               </div>
             </div>
             <table className="table table-striped table-hover">

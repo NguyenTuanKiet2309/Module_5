@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers, deleteUser } from "./redux/action";
 
@@ -12,10 +11,14 @@ function App() {
     }
   };
 
+  const handleGetUser = () => {
+    dispatch(getUsers());
+  }
+
   return (
     <div>
       <h1>User List</h1>
-      <button className="btn btn-outline-success" onClick={() => dispatch(getUsers())}>Get users</button>
+      <button className="btn btn-outline-success" onClick={handleGetUser}>Get users</button>
       <table className="table">
         <thead>
           <tr>
