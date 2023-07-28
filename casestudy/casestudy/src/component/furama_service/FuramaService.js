@@ -13,7 +13,20 @@ export const DeleteCustomer = async (id) => {
 
 export const CreateCustomer = async (customer) => {
   await axios.post("/customers", customer);
+};
 
+export const EditCustomer = async (id, customer) => {
+  const res = await axios.patch("/customers/" + id, customer);
+  return res.data;
+};
+
+export const getTypeCustomer = async () => {
+  const res = await axios.get("/typeCustomer");
+  return res.data;
+};
+export const getTypeCustomerById = async (id) => {
+  const res = await axios.get("/typeCustomer/" + id);
+  return res.data;
 };
 
 export const getListService = async () => {

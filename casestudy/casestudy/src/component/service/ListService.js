@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { getListService } from "../furama_service/FuramaService";
-import {
-  AddCustomerModal,
-  DeleteCustomerModal,
-  EditCustomerModal,
-} from "../customer/ModalCustomer";
+
 import { DeleteServiceModal } from "./ModalService";
 
 export default function ListService() {
@@ -61,13 +57,13 @@ export default function ListService() {
                 {service.map((s) => {
                   return (
                     <tr key={s.id}>
-                      <td>{s.Service}</td>
-                      <td>{s.area}</td>
-                      <td>{s.Costs}</td>
-                      <td>{s.MaxPeople}</td>
-                      <td>{s.Type}</td>
+                      <td>{s.service}</td>
+                      <td>{s.usable_area}</td>
+                      <td>{s.costs}</td>
+                      <td>{s.max_people}</td>
+                      <td>{s.type}</td>
                       <td>
-                        <EditCustomerModal />
+                  
                         <a
                           onClick={() => {
                             openModalDeleteService(s.id);

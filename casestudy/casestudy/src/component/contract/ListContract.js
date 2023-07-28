@@ -39,6 +39,8 @@ export default function ListContract() {
                 <tr>
                 
                   <th>ID</th>
+                  <th>Customer</th>
+                  <th>Service</th>
                   <th>Day Start</th>
                   <th>Day End</th>
                   <th>Pre-order amount</th>
@@ -49,11 +51,13 @@ export default function ListContract() {
                 {contract.map((contracts) => {
                   return (
                     <tr key={contracts.contract_id}>
-                      <td>{contracts.contract_id}</td>
-                      <td>{contracts.check_in}</td>
-                      <td>{contracts.check_out}</td>
-                      <td>{contracts.deposit}</td>
-                      <td>{contracts.total}</td>
+                      <td>{contracts.contractNumber}</td>
+                      <td>{contracts.customer.name}</td>
+                      <td>{contracts.service.service}</td>
+                      <td>{contracts.startDate}</td>
+                      <td>{contracts.endDate}</td>
+                      <td>{contracts.prepaidAmount}</td>
+                      <td>{contracts.totalPayment}</td>
                     </tr>
                   );
                 })}

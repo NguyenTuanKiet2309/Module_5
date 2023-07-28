@@ -3,37 +3,23 @@ import {
   AddCustomerModal,
   EditCustomerModal,
   DeleteCustomerModal,
-} from "./ModalCustomer";
+} from "./DeleteCustomerModal";
 import { getListCustomer } from "../furama_service/FuramaService";
+import { Link } from "react-router-dom";
 
 export default function ListCustomer() {
   const [customers, setCustomers] = useState([]);
   const [deletedId, setDeletedId] = useState(null);
   const [customerName, setCustomerName] = useState("");
-  const [idCardCustomer,setIdCardCustomer] = useState("");
+  const [idCardCustomer, setIdCardCustomer] = useState("");
   const [isOpenModalDeleteCustomer, setIsOpenDeleteCustomer] = useState(false);
-  const [isOpenModalEditCustomer, setIsOpenEditCustomer] = useState(false);
-  const [isOpenModalCreateCustomer, setIsOpenCreateCustomer] = useState(false);
 
-  const openModalCreateCustomer = () => {
-    setIsOpenCreateCustomer(true);
-  };
-
-  const closeModalCreateCustomer = () => setIsOpenCreateCustomer(false);
-
-  const openModalEditCustomer = (id) => {
-    setIsOpenEditCustomer(true);
-    console.log("edit " + id);
-  };
-
-  const closeModalEditCustomer = () => setIsOpenEditCustomer(false);
-
-  const openModalDeleteCustomer = (id,customerName,idCard) => {
+  const openModalDeleteCustomer = (id, customerName, idCard) => {
     setIsOpenDeleteCustomer(true);
     setDeletedId(id);
     setCustomerName(customerName);
     setIdCardCustomer(idCard);
-    console.log("delete " + id,customerName,idCard);
+    console.log("delete " + id, customerName, idCard);
   };
 
   const closeModalDeleteCustomer = () => setIsOpenDeleteCustomer(false);
@@ -44,11 +30,11 @@ export default function ListCustomer() {
       setCustomers(data);
     };
     getCustomer();
-  };
+  }
 
   useEffect(() => {
     getList();
-  });
+  }, []);
 
   return (
     <>
@@ -63,15 +49,16 @@ export default function ListCustomer() {
                   </h2>
                 </div>
                 <div className="col-sm-6">
-                  <a
-                    onClick={() => {
-                      openModalCreateCustomer();
-                    }}
+                  <Link
+                    to="/customer/create"
                     className="btn btn-success"
+                    data-toggle="modal"
                   >
-                    <i className="material-icons"></i>{" "}
+                    <i aria-hidden="true" className="material-icons">
+                      
+                    </i>{" "}
                     <span>Add New Customer</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -101,13 +88,11 @@ export default function ListCustomer() {
                       <td>{customer.id_card}</td>
                       <td>{customer.phone_number}</td>
                       <td>{customer.email}</td>
-                      <td>{customer.customer_type}</td>
+                      <td>{customer.customer_type.type}</td>
                       <td>{customer.address}</td>
                       <td>
-                        <a
-                          onClick={() => {
-                            openModalEditCustomer();
-                          }}
+                        <Link
+                          to={`/customer/edit/${customer.id}`}
                           className="edit"
                         >
                           <i
@@ -117,11 +102,15 @@ export default function ListCustomer() {
                           >
                             
                           </i>
-                        </a>
+                        </Link>
 
                         <a
                           onClick={() => {
-                            openModalDeleteCustomer(customer.id ,customer.name,customer.id_card);
+                            openModalDeleteCustomer(
+                              customer.id,
+                              customer.name,
+                              customer.id_card
+                            );
                           }}
                           className="delete"
                         >
@@ -139,10 +128,7 @@ export default function ListCustomer() {
                 })}
               </tbody>
             </table>
-            <AddCustomerModal
-              isOpen={isOpenModalCreateCustomer}
-              closeModal={closeModalCreateCustomer}
-            />
+
             <DeleteCustomerModal
               isOpen={isOpenModalDeleteCustomer}
               closeModal={closeModalDeleteCustomer}
@@ -150,10 +136,6 @@ export default function ListCustomer() {
               customerName={customerName}
               idCardCustomer={idCardCustomer}
               getAllCustomer={getList}
-            />
-            <EditCustomerModal
-              isOpen={isOpenModalEditCustomer}
-              closeModal={closeModalEditCustomer}
             />
             <div className="clearfix">
               <div className="hint-text">

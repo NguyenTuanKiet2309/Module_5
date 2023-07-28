@@ -9,6 +9,8 @@ import Header from "./component/navigation/Header";
 import Footer from "./component/navigation/Footer";
 import ListCustomer from "./component/customer/ListCustomer";
 import ListService from "./component/service/ListService";
+import CustomerEdit from "./component/customer/EditCustomer";
+import CustomerCreate from "./component/customer/CreateCustomer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +21,8 @@ root.render(
         <Route path="/" element={<Content />} />
         <Route path="/contract" element={<ListContract />} />
         <Route path="/customer" element={<ListCustomer />} />
+        <Route path="/customer/create" element={<CustomerCreate />} />
+        <Route path="/customer/edit/:id" element={<CustomerEdit />} />
         <Route path="/service" element={<ListService />} />
       </Routes>
       <Footer />

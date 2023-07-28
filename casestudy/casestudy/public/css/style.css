@@ -249,7 +249,7 @@ button {
         font-weight: 600; }
   .header_area.navbar_fixed .main_menu {
     background: #fff;
-    position: fixed;
+ 
     width: 100%;
     top: -70px;
     left: 0;
