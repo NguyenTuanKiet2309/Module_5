@@ -1,9 +1,25 @@
 import { useEffect, useState } from "react";
 import { getListService } from "../furama_service/FuramaService";
-import { AddCustomerModal, DeleteCustomerModal, EditCustomerModal } from "../customer/ModalCustomer";
+import {
+  AddCustomerModal,
+  DeleteCustomerModal,
+  EditCustomerModal,
+} from "../customer/ModalCustomer";
+import { DeleteServiceModal } from "./ModalService";
 
 export default function ListService() {
   const [service, setService] = useState([]);
+  const [deletedId, setDeletedId] = useState(null);
+  const [isOpenModalDeleteService, setIsOpenDeleteService] = useState(false);
+
+  const openModalDeleteService = (id) => {
+    setIsOpenDeleteService(true);
+    setDeletedId(id);
+    console.log("delete " + id);
+  };
+
+  const closeModalDeleteService = () => setIsOpenDeleteService(false);
+
   function getList() {
     const getService = async () => {
       const data = await getListService();
@@ -11,10 +27,11 @@ export default function ListService() {
     };
     getService();
   }
+
   useEffect(() => {
     getList();
   });
-  
+
   return (
     <>
       <div className="container-xl container">
@@ -27,13 +44,11 @@ export default function ListService() {
                     Manage <b>Service</b>
                   </h2>
                 </div>
-               
               </div>
             </div>
             <table className="table table-striped table-hover">
               <thead>
                 <tr>
-                  
                   <th>Name</th>
                   <th>Usage Area(m2)</th>
                   <th>Rental Cost($)</th>
@@ -43,7 +58,7 @@ export default function ListService() {
                 </tr>
               </thead>
               <tbody>
-                {service.map((s)=>{
+                {service.map((s) => {
                   return (
                     <tr key={s.id}>
                       <td>{s.Service}</td>
@@ -52,14 +67,32 @@ export default function ListService() {
                       <td>{s.MaxPeople}</td>
                       <td>{s.Type}</td>
                       <td>
-                        <EditCustomerModal/>
-                        <DeleteCustomerModal/>
+                        <EditCustomerModal />
+                        <a
+                          onClick={() => {
+                            openModalDeleteService(s.id);
+                          }}
+                          className="delete"
+                        >
+                          <i
+                            className="material-icons"
+                            data-toggle="tooltip"
+                            title="Delete"
+                          >
+                            
+                          </i>
+                        </a>
                       </td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
+            <DeleteServiceModal
+              isOpen={isOpenModalDeleteService}
+              closeModal={closeModalDeleteService}
+              deleteId={deletedId}
+            />
             <div className="clearfix">
               <div className="hint-text">
                 Showing <b>5</b> out of <b>25</b> entries

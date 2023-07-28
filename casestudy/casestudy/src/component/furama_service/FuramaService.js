@@ -12,12 +12,16 @@ export const DeleteCustomer = async (id) => {
 };
 
 export const CreateCustomer = async (customer) => {
-  const res = await axios.post("/customers", customer);
-  return res.data;
+  await axios.post("/customers", customer);
+
 };
 
 export const getListService = async () => {
   const res = await axios.get("/services");
+  return res.data;
+};
+export const DeleteService = async (id) => {
+  const res = await axios.delete("/services/" + id);
   return res.data;
 };
 

@@ -1,6 +1,39 @@
 {
   "customers": [
     {
+      "id": "2",
+      "name": "Tran Thi B",
+      "date_of_birth": "02/02/1995",
+      "gender": "Female",
+      "id_card": "987654321",
+      "phone_number": "0987654321",
+      "email": "tranthib@yahoo.com",
+      "typeCustomer": "Regular",
+      "address": "No.2 Street B, District 2, Ho Chi Minh City"
+    },
+    {
+      "id": "3",
+      "name": "Le Minh C",
+      "date_of_birth": "03/03/1985",
+      "gender": "Male",
+      "id_card": "456789123",
+      "phone_number": "0567891234",
+      "email": "leminhc@hotmail.com",
+      "typeCustomer": "VIP",
+      "address": "No.3 Street C, District 3, Ho Chi Minh City"
+    },
+    {
+      "id": "4",
+      "name": "Pham Thi D",
+      "date_of_birth": "04/04/1992",
+      "gender": "Female",
+      "id_card": "369852147",
+      "phone_number": "0369852147",
+      "email": "phamthid@gmail.com",
+      "typeCustomer": "Regular",
+      "address": "No.4 Street D, District 4, Ho Chi Minh City"
+    },
+    {
       "id": "5",
       "name": "Hoang Van E",
       "date_of_birth": "05/05/1988",
@@ -8,8 +41,41 @@
       "id_card": "258147369",
       "phone_number": "0258147369",
       "email": "hoangvane@yahoo.com",
-      "customer_type": "VIP",
+      "typeCustomer": "VIP",
       "address": "No.5 Street E, District 5, Ho Chi Minh City"
+    },
+    {
+      "id": "6",
+      "name": "Nguyen Thi F",
+      "date_of_birth": "06/06/1991",
+      "gender": "Female",
+      "id_card": "147258369",
+      "phone_number": "0147258369",
+      "email": "nguyenthif@hotmail.com",
+      "typeCustomer": "Regular",
+      "address": "No.6 Street F, District 6, Ho Chi Minh City"
+    },
+    {
+      "id": "7",
+      "name": "Tran Van G",
+      "date_of_birth": "07/07/1987",
+      "gender": "Male",
+      "id_card": "963852741",
+      "phone_number": "0963852741",
+      "email": "tranvang@gmail.com",
+      "typeCustomer": "VIP",
+      "address": "No.7 Street G, District 7, Ho Chi Minh City"
+    },
+    {
+      "id": "8",
+      "name": "Le Thi H",
+      "date_of_birth": "08/08/1994",
+      "gender": "Female",
+      "id_card": "741852963",
+      "phone_number": "0741852963",
+      "email": "lethih@yahoo.com",
+      "typeCustomer": "Regular",
+      "address": "No.8 Street H, District 8, Ho Chi Minh City"
     }
   ],
   "services": [

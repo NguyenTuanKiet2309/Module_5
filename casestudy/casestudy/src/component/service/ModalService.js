@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import * as yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { DeleteService } from "../furama_service/FuramaService";
 
 function AddServiceModal(props) {
   const [show, setShow] = useState(false);
   const [form, setForm] = useState({
     fullName: "",
     idCard: "",
-    address: "",
+    address: "",  
     email: "",
     phone: "",
     gender: "",
@@ -18,14 +19,6 @@ function AddServiceModal(props) {
   const genders = [
     { label: "Male", value: "Male" },
     { label: "Female", value: "Female" },
-  ];
-
-  const typeServices = [
-    { label: "Member", value: "Member" },
-    { label: "Silver", value: "Silver" },
-    { label: "Gold", value: "Gold" },
-    { label: "Diamond", value: "Diamond" },
-    { label: "Platium", value: "Platium" },
   ];
 
   const REGEX = yup.object().shape({
@@ -167,7 +160,6 @@ function AddServiceModal(props) {
                           component="div"
                           className="text-red"
                         />
-                     
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
@@ -232,21 +224,7 @@ function AddServiceModal(props) {
                           name="typeCustomer"
                           value={form.typeCustomer}
                         >
-                          {typeCustomers.map((customer, index1) => {
-                            return (
-                              <>
-                                <option
-                                  key={`st1_${index1}`}
-                                  value={customer.value}
-                                  checked={form.customer === customer.value}
-                                  onClick={handleChange}
-                                  className="form-check-input"
-                                >
-                                  {customer.label}
-                                </option>
-                              </>
-                            );
-                          })}
+                        
                         </select>
                         <ErrorMessage
                           name="typeCustomer"
@@ -487,7 +465,6 @@ function EditServiceModal(props) {
                           component="div"
                           className="text-red"
                         />
-                     
                       </div>
                     </div>
                     <div className="col-md-6 mb-4">
@@ -638,42 +615,29 @@ function EditServiceModal(props) {
 }
 
 function DeleteServiceModal(props) {
-  const [show, setShow] = useState(false);
-  const [deletedId, setDeletedId] = useState(null);
-
-  const handleClose = () => setShow(false);
-
-  const showModal = (id) => {
-    setShow(true);
-    setDeletedId(id);
+  function hanldeDelete(serviceId) {
+    const deleteService = async () => {
+      try {
+        await DeleteService(serviceId);
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    deleteService();
   };
 
   return (
     <>
-      <a
-        onClick={() => {
-          showModal();
-        }}
-        // href="#deleteCustomerModal"
-        className="delete"
-        // data-toggle="modal"
-        // data-target="#deleteCustomerModal"
-      >
-        <i className="material-icons" data-toggle="tooltip" title="Delete">
-          
-        </i>
-      </a>
-
-      <Modal show={show} onHide={handleClose} deleteId={deletedId}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete Customer</Modal.Title>
+      <Modal show={props.isOpen} onHide={props.closeMoDal}>
+        <Modal.Header>
+          <Modal.Title>Delete Service</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
             <div>
               <form>
                 <div className="modal-body">
-                  <p>Are you sure you want to delete these Records?</p>
+                  <p>Are you sure you want to delete {props.deleteId}?</p>
                   <p className="text-warning">
                     <small>This action cannot be undone.</small>
                   </p>
@@ -683,12 +647,12 @@ function DeleteServiceModal(props) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={props.closeMoDal}>
             Close
           </Button>
-          <Button variant="danger" onClick={props.editCustomer}>
+          <Button variant="danger" onClick={hanldeDelete(props.deleteId)}>
             Delete
-          </Button> 
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

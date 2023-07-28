@@ -9,6 +9,8 @@ import { getListCustomer } from "../furama_service/FuramaService";
 export default function ListCustomer() {
   const [customers, setCustomers] = useState([]);
   const [deletedId, setDeletedId] = useState(null);
+  const [customerName, setCustomerName] = useState("");
+  const [idCardCustomer,setIdCardCustomer] = useState("");
   const [isOpenModalDeleteCustomer, setIsOpenDeleteCustomer] = useState(false);
   const [isOpenModalEditCustomer, setIsOpenEditCustomer] = useState(false);
   const [isOpenModalCreateCustomer, setIsOpenCreateCustomer] = useState(false);
@@ -21,16 +23,17 @@ export default function ListCustomer() {
 
   const openModalEditCustomer = (id) => {
     setIsOpenEditCustomer(true);
-
     console.log("edit " + id);
   };
 
   const closeModalEditCustomer = () => setIsOpenEditCustomer(false);
 
-  const openModalDeleteCustomer = (id) => {
+  const openModalDeleteCustomer = (id,customerName,idCard) => {
     setIsOpenDeleteCustomer(true);
     setDeletedId(id);
-    console.log("delete " + id);
+    setCustomerName(customerName);
+    setIdCardCustomer(idCard);
+    console.log("delete " + id,customerName,idCard);
   };
 
   const closeModalDeleteCustomer = () => setIsOpenDeleteCustomer(false);
@@ -41,7 +44,7 @@ export default function ListCustomer() {
       setCustomers(data);
     };
     getCustomer();
-  }
+  };
 
   useEffect(() => {
     getList();
@@ -95,7 +98,7 @@ export default function ListCustomer() {
                       <td>{customer.name}</td>
                       <td>{customer.date_of_birth}</td>
                       <td>{customer.gender}</td>
-                      <td>{customer.id_customerard}</td>
+                      <td>{customer.id_card}</td>
                       <td>{customer.phone_number}</td>
                       <td>{customer.email}</td>
                       <td>{customer.customer_type}</td>
@@ -118,7 +121,7 @@ export default function ListCustomer() {
 
                         <a
                           onClick={() => {
-                            openModalDeleteCustomer(customer.id);
+                            openModalDeleteCustomer(customer.id ,customer.name,customer.id_card);
                           }}
                           className="delete"
                         >
@@ -144,6 +147,9 @@ export default function ListCustomer() {
               isOpen={isOpenModalDeleteCustomer}
               closeModal={closeModalDeleteCustomer}
               deleteId={deletedId}
+              customerName={customerName}
+              idCardCustomer={idCardCustomer}
+              getAllCustomer={getList}
             />
             <EditCustomerModal
               isOpen={isOpenModalEditCustomer}
