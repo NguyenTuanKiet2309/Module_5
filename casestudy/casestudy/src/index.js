@@ -11,6 +11,7 @@ import ListCustomer from "./component/customer/ListCustomer";
 import ListService from "./component/service/ListService";
 import CustomerEdit from "./component/customer/EditCustomer";
 import CustomerCreate from "./component/customer/CreateCustomer";
+import ContractCreate from "./component/contract/CreateContract";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Content />} />
         <Route path="/contract" element={<ListContract />} />
+        <Route path="/contract/create" element={<ContractCreate />} />
         <Route path="/customer" element={<ListCustomer />} />
         <Route path="/customer/create" element={<CustomerCreate />} />
         <Route path="/customer/edit/:id" element={<CustomerEdit />} />

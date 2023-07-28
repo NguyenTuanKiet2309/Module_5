@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getListContract } from "../furama_service/FuramaService";
 import AddContractModal from "./ModalContract";
+import { Link } from "react-router-dom";
 
 export default function ListContract() {
   const [contract, setContract] = useState([]);
@@ -29,7 +30,16 @@ export default function ListContract() {
                   </h2>
                 </div>
                 <div class="col-sm-6">
-                  <AddContractModal/>
+                <Link
+                    to="/contract/create"
+                    className="btn btn-success"
+                    data-toggle="modal"
+                  >
+                    <i aria-hidden="true" className="material-icons">
+                      
+                    </i>{" "}
+                    <span>Add New Contract</span>
+                  </Link>
                  
                 </div>
               </div>

@@ -43,7 +43,7 @@ export function DeleteCustomerModal(props) {
                     has{" "}
                     <span className="spanRed">
                       {" "}
-                      Id Card : {props.idCardCustomer}{" "}
+                      ID Card : {props.idCardCustomer}{" "}
                     </span>{" "}
                     ?
                   </p>

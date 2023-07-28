@@ -98,12 +98,12 @@ export default function CustomerCreate() {
                   value == null || moment(value, "DD/MM/YYYY", true).isValid()
               ),
             phone_number: yup
-            .string()
-            .matches(
-              /(84|\+84)?(90|91)\d{7}$/,
-              "Invalid phone number. Must be in the format 090xxxxxxx or (84)+90xxxxxxx"
-            )
-            .required("Phone must be required."),
+              .string()
+              .matches(
+                /(84|\+84)?(90|91)\d{7}$/,
+                "Invalid phone number. Must be in the format 090xxxxxxx or (84)+90xxxxxxx"
+              )
+              .required("Phone must be required."),
             id_card: yup
               .string()
               .matches(/^[0-9]{12}$/, "ID card must be 12 number.")

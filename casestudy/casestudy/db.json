@@ -1,32 +1,18 @@
 {
   "customers": [
     {
-      "id": 4,
-      "name": "Pham Thi Duyen",
-      "date_of_birth": "04/04/1992",
-      "gender": "Female",
-      "id_card": "369852147",
-      "phone_number": "0369852147",
-      "email": "phamthid@gmail.com",
-      "customer_type": {
-        "id": 2,
-        "type": "Silver"
-      },
-      "address": "No.4 Street D, District 4, Ho Chi Minh City"
-    },
-    {
       "id": 5,
-      "name": "Hoang Van Dai",
-      "date_of_birth": "05/05/1988",
-      "gender": "Male",
-      "id_card": "258147369",
-      "phone_number": "0258147369",
-      "email": "hoangvane@yahoo.com",
+      "name": "Van Thaizxc",
+      "date_of_birth": "2023-07-08",
+      "gender": "female",
+      "id_card": "112312312312",
+      "phone_number": "0905702079",
+      "email": "Tuankiett2309@gmail.com",
       "customer_type": {
-        "id": 2,
-        "type": "Silver"
+        "id": 5,
+        "type": "Diamond"
       },
-      "address": "No.5 Street E, District 5, Ho Chi Minh City"
+      "address": "231024687"
     },
     {
       "id": 6,
@@ -155,16 +141,16 @@
       "id": 14
     },
     {
-      "name": "Nguyen Tuan",
-      "email": "Tuankiett2309@gmail.com",
-      "phone_number": "0905702079",
+      "name": "Nguyen Tuan Kiet",
+      "email": "Tuankiett2309@gmail.commm",
+      "phone_number": "0905702071",
       "date_of_birth": "2023-07-05",
-      "address": "231024687",
-      "gender": "male",
-      "id_card": "123123123123",
+      "address": "101 Ung Văn Khiêm",
+      "gender": "female",
+      "id_card": "111111111111",
       "customer_type": {
-        "id": 5,
-        "type": "Diamond"
+        "id": 3,
+        "type": "Gold"
       },
       "id": 15
     }
