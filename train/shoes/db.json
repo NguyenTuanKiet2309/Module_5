@@ -1,0 +1,72 @@
+{
+  "shoes": [
+    {
+      "name": "AirMax 97",
+      "price": "123",
+      "producer": {
+        "id": 1,
+        "name": "Nike"
+      },
+      "id": 2
+    },
+    {
+      "name": "zxc",
+      "price": "123",
+      "producer": {
+        "id": 3,
+        "name": "NewBalance"
+      },
+      "id": 6
+    },
+    {
+      "name": "AF2",
+      "price": "1111",
+      "producer": {
+        "id": 2,
+        "name": "Adidas"
+      },
+      "id": 7
+    },
+    {
+      "name": "AF2",
+      "price": "123123",
+      "producer": {
+        "id": 2,
+        "name": "Adidas"
+      },
+      "id": 8
+    },
+    {
+      "name": "kiet",
+      "price": "123",
+      "producer": {
+        "id": 2,
+        "name": "Adidas"
+      },
+      "id": 9
+    },
+    {
+      "name": "Nguyễn Tuấn Kiệt",
+      "price": "123",
+      "producer": {
+        "id": 2,
+        "name": "Adidas"
+      },
+      "id": 10
+    }
+  ],
+  "producer": [
+    {
+      "id": 1,
+      "name": "Nike"
+    },
+    {
+      "id": 2,
+      "name": "Adidas"
+    },
+    {
+      "id": 3,
+      "name": "NewBalance"
+    }
+  ]
+}

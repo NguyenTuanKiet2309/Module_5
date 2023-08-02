@@ -1,0 +1,58 @@
+{
+  "spotifys": [
+    {
+      "id": 1,
+      "name": "Kho ve nu cuoi",
+      "single": "DatG",
+      "artist": "DatG",
+      "time": "04:00",
+      "likes": 0,
+      "status": "true"
+    },
+    {
+      "name": "aaaaaaaaaaa",
+      "single": "aaaaaaaaaaaaa",
+      "artist": "aaaaaaaaaaaa",
+      "time": "aaaaaaaaaaaa",
+      "likes": 0,
+      "status": "true",
+      "id": 2
+    },
+    {
+      "name": "ddddddđ",
+      "single": "ddddddddddddđ",
+      "artist": "ddddddddddddđ",
+      "time": "ddddddddddddd",
+      "likes": 0,
+      "status": "true",
+      "id": 3
+    },
+    {
+      "name": "dddđ",
+      "single": "ddddddddddddđ",
+      "artist": "dddddddddđ",
+      "time": "dddddd",
+      "likes": 0,
+      "status": "true",
+      "id": 4
+    },
+    {
+      "name": "aaaa",
+      "single": "aaaaaaaaaaaaaaaaaaaa",
+      "artist": "aaaaaaaaaaaaaaaaa",
+      "time": "13:04",
+      "likes": 0,
+      "status": "false",
+      "id": 5
+    },
+    {
+      "name": "bbb",
+      "single": "aaaaaaaaaaaaaaaaaaaaa",
+      "artist": "aaaaaaaaaaaaaaaaaaaaaaa",
+      "time": "bbb",
+      "likes": 0,
+      "status": "false",
+      "id": 6
+    }
+  ]
+}
